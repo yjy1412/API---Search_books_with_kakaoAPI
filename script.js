@@ -21,6 +21,8 @@ $(document).ready(function () {
       },
       success: function (json) {
         const documents = json.documents;
+        // 컨텐츠 wraping
+        // container.append("<section>" + thumbnail + "</section>");
 
         documents.forEach(document => {
           const { authors, title, contents, sale_price, thumbnail } = document;
