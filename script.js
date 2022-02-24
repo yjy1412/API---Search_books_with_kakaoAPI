@@ -21,18 +21,21 @@ $(document).ready(function () {
       },
       success: function (json) {
         const documents = json.documents;
-        // 컨텐츠 wraping
-        // container.append("<section>" + thumbnail + "</section>");
+        
 
-        documents.forEach(document => {
+        documents.forEach((document, idx) => {
+          // 컨텐츠 wraping
+          container.append("<section class=content id=content"+idx+"></section>");
+          const book = $("#content"+idx);
+
           const { authors, title, contents, sale_price, thumbnail } = document;
           // authors의 타입은 배열임.
           const authorsToString = authors.join(', ');
-          container.append("<img src=" + thumbnail + ">");
-          container.append("<strong>" + title + "</strong>");
-          container.append("<p>" + contents + "</p>");
-          container.append("<p>" + sale_price + "</p>");
-          container.append("<p>" + authorsToString + "</p>");
+          book.append("<img src=" + thumbnail + ">");
+          book.append("<strong>" + title + "</strong>");
+          book.append("<p>" + contents + "</p>");
+          book.append("<p>" + sale_price + "</p>");
+          book.append("<p>" + authorsToString + "</p>");
         })
       }
     })
