@@ -21,14 +21,18 @@ $(document).ready(function () {
       },
       success: function (json) {
         const documents = json.documents;
-        
+        console.log(documents);
+        // documents 최신 발행(datetime)순으로 정렬
+        documents.sort((a, b) => {
+          return new Date(b.datetime) - new Date(a.datetime);
+        });
 
         documents.forEach((document, idx) => {
           // 컨텐츠 wraping
           container.append("<section class=content id=content"+idx+"></section>");
           const book = $("#content"+idx);
 
-          const { authors, title, contents, sale_price, thumbnail } = document;
+          const { authors, title, contents, sale_price, thumbnail, datetime } = document;
           // authors의 타입은 배열임.
           const authorsToString = authors.join(', ');
           book.append("<img src=" + thumbnail + ">");
@@ -36,6 +40,7 @@ $(document).ready(function () {
           book.append("<p>" + contents + "</p>");
           book.append("<p>" + sale_price + "</p>");
           book.append("<p>" + authorsToString + "</p>");
+          book.append("<p>" + datetime + "</p>");
         })
       }
     })
