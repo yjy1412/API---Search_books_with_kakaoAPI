@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search book with KAKAO API</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <h2>Book Search with KAKAO API</h2>
+  <form action="https://dapi.kakao.com/v3/search/book?target=title" method="GET">
+    <input type="search" id="query" name="q" placeholder="Search...">
+    <button type="submit" class="btn btn-success">검색</button>
+  </form>
+  
+  <div class="container"></div>
+</body>
+</html>
